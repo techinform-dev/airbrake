@@ -23,7 +23,7 @@ module Airbrake
           # Insert after ConnectionManagement to avoid DB connection leakage:
           # https://github.com/airbrake/airbrake/pull/568
           app.config.middleware.insert_after(
-            ActiveRecord::ConnectionAdapters::ConnectionManagement,
+            ActionDispatch::DebugExceptions,
             'Airbrake::Rack::Middleware'
           )
         else
