@@ -24,7 +24,7 @@ module Airbrake
           # https://github.com/airbrake/airbrake/pull/568
           app.config.middleware.insert_after(
             ActionDispatch::DebugExceptions,
-            'Airbrake::Rack::Middleware'
+            Airbrake::Rack::Middleware
           )
         else
           # Insert after DebugExceptions for apps without ActiveRecord.
